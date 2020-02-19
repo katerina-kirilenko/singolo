@@ -1,15 +1,22 @@
+@import url(fonts.css);
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'LatoWeb', sans-serif;
   color: #666d89;
 }
 
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
+}
+
 .container {
-  max-width: 960px;
+  width: 960px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -26,12 +33,10 @@ body {
 
 .logo {
   position: relative;
-  top: 25px;
-  left: 9px;
-
-  font-size: 25px;
-  font-weight: 400; 
-  letter-spacing: -0.2px;
+  top: 24px;
+  left: 11px;
+  font-size: 24px;
+  font-family: 'LatoWeb', sans-serif;
   text-transform: uppercase;
   text-decoration: none;
   color: #ffffff;
@@ -52,7 +57,8 @@ body {
 
 .navigation li a {
   font-size: 12px;
-  font-weight: 400;   
+  font-family: 'LatoWeb', sans-serif; 
+  letter-spacing: 0.07px; 
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 12px;
@@ -77,26 +83,23 @@ body {
 }
 
 .slider .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 27px 0;
+  position: relative;
 }
 
 .slider__arrows {
-  display: flex;
-  justify-content: space-between;
-  margin-top: -28px;
+  z-index: 999;
 }
 
 .left-arrow {
   position: absolute;
-  left: 10%;
+  top: 280px;
+  left: 20px;
 }
 
 .right-arrow {
   position: absolute;
-  right: 10%;
+  top: 280px;
+  right: 20px;
 }
 
 .slider__arrows img {
@@ -109,13 +112,20 @@ body {
 }
 
 .slider__content {
-  display: flex;
-  align-items: center;
-  margin: 26px 81px;
+  position: relative;
+  z-index: 998;
 }
 
 .iphone-vertical {
-  padding-right: 73px;
+  position: absolute;
+  top: 53px; 
+  left: 82px;
+}
+
+.iphone-horizontal {
+  position: absolute;
+  top: 174px;
+  right: 81px;
 }
 
 .services {
@@ -126,18 +136,22 @@ body {
 
 .services__title {
   font-size: 30px;
-  font-weight: 900;   
+  font-family: 'LatoWebBlack', sans-serif;
   text-transform: capitalize; 
   padding: 10px; 
+  height: 30px;
+  overflow: hidden; 
 }
 
 .services__description {
-  padding: 10px;  
+  padding: 14px 10px 12px 10px;
   font-size: 18px;
-  font-weight: 300; 
-  line-height: 28px;
-  text-align: justify;
+  font-family: 'LatoWebLight', sans-serif;
+  line-height: 30px;
+text-align: justify;
   letter-spacing: -0.2px;
+  height: 50px;
+  overflow: hidden; 
 }
 
 .layout-3-column {
@@ -147,14 +161,14 @@ body {
 }
 
 .services .layout-3-column {
-  margin: 36px 0;
+  margin: 41px 0;
 }
 
 .service {
   display: flex;
   justify-content: space-between;  
   width: 33.333%;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .service__icon {
@@ -168,14 +182,18 @@ body {
 
 .service__title {
   font-size: 18px;
-  font-weight: 900;  
+  font-family: 'LatoWebBlack', sans-serif; 
   text-transform: capitalize; 
   margin-bottom: 5px;
+  height: 22px;
+  overflow: hidden; 
 }
 
 .services__text {
   font-size: 12px;
-  font-weight: 400; 
+  font-family: 'LatoWeb', sans-serif;
   line-height: 22px;
+  height: 65px;
+  overflow: hidden; 
   text-align: justify;
 }
