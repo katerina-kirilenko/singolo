@@ -78,24 +78,130 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-height: 621px;
+  overflow: hidden;
 }
-
 
 .gallery__img {
   width: 220px;
   height: 187px;
   margin: 10px;
   overflow: hidden;
-  display:flex;justify-content:center;align-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #000; 
+}
+
+.gallery__img img {
+  transition: all 0.5s ease-in-out;  
+}
+
+.gallery__img:hover {
+  cursor: pointer;
+}
+
+.gallery__img:hover img {
+  opacity: 0.7;
+  transform: scale(1.1);
 }
 
 /* Section About Us */
 
+.about-us {
+  background-color: #f2f2f2;
+  padding: 54px 0  32px;
+  border-bottom: 6px solid #ffffff; 
+}
+
+.about-us__title {
+  font-size: 30px;
+  font-family: 'LatoWebBlack', sans-serif;
+  padding: 15px 0 27px 10px; 
+  line-height: 18px;
+  overflow: hidden; 
+}
+
+.about-us__description {
+  padding: 0 10px 9px 10px;
+  font-size: 18px;
+  font-family: 'LatoWebLight', sans-serif;
+  line-height: 30px;
+  text-align: justify;
+  letter-spacing: -0.22px;
+  overflow: hidden; 
+}
+
 .about-us__workers {
   display: flex;
   justify-content: space-between;
+  margin: 34px 10px;
 }
 
 .about-us__worker {
-  width: 302px; 
+  width: 300px; 
+  overflow: hidden; 
+}
+
+.worker__photo {
+  width: 302px;
+  height: 302px; 
+  overflow: hidden;  
+}
+
+.worker__name {
+  font-size: 18px;
+  font-family: 'LatoWebBlack', sans-serif;
+  padding: 17px 0 10px; 
+  line-height: 18px;
+  overflow: hidden; 
+}
+
+.worker__description {
+  font-size: 12px;
+  font-family: 'LatoWeb', sans-serif;
+  text-align: justify;
+  line-height: 21.5px;
+  overflow: hidden;  
+}
+
+.worker__social {
+  margin-top: 22px; 
+  display: flex; 
+}
+
+.social__icon {
+  display: block;
+  position: relative; 
+  margin-right: 8px; 
+  width: 32px;
+  height: 32px; 
+  border-radius: 50%;
+  border: 1px solid #666d89;
+  box-sizing: border-box;  
+}
+
+.social__icon:hover {
+  border-color: #333850;
+}
+
+.social__icon object {  
+  height: 15px; 
+  position: absolute; 
+  left: 50%; top: 50%; 
+  transform: translate(-50%,-50%);
+  line-height: 100%; 
+}
+
+.social-svg {
+  fill:#666d89;
+}
+
+.social-svg:hover {
+  cursor: pointer;
+  fill:#333850;
+}
+
+.social__icon .google-ico {
+  height: 22px;
 }
