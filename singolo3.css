@@ -1,0 +1,237 @@
+@import url(fonts.css);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'LatoWeb', sans-serif;
+  color: #666d89;
+}
+
+.wrapper {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.quote {
+  padding: 67px 0 13px;  
+  color: #ffffff;  
+  background-color: #f06c64;
+  border-bottom: 6px solid #ea676b; 
+}
+
+.quote__header {
+margin-bottom: 42px;
+}
+
+.quote__title {
+  padding: 4px 0 25px 10px;
+  font-size: 30px;
+  font-family: 'LatoWebBlack', sans-serif;
+  line-height: 19px;
+  letter-spacing: -0.15px;
+  white-space: nowrap;   /*скрытие переполнения строки*/
+  overflow: hidden;   /*скрытие переполнения строки*/
+}
+
+.quote__description {
+  padding: 0 10px;
+  font-size: 18px;
+  font-family: 'LatoWebLight', sans-serif;
+  line-height: 30px;
+  text-align: justify;
+  letter-spacing: -0.2px;
+  overflow: hidden; 
+}
+
+.quote__content {
+  display: flex; 
+  justify-content: space-between;
+}
+
+form, input, textarea, button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.form-wrap {
+  width: 630px;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;  
+}
+
+.quote-form__username,
+.quote-form__email,
+.quote-form__subject,
+.quote-form__comment {
+  background-color: #d6564f;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'LatoWebLight', sans-serif;
+  line-height: 38px;
+  letter-spacing: 0.2px;
+  margin: 0 0 16px 10px;
+  padding-left: 15px;
+}
+
+.quote-form input::placeholder, .quote-form textarea::placeholder {
+  color: #f48c8f;
+}
+
+.quote-form__username:valid,
+.quote-form__email:valid {
+  background: rgb(69, 209, 110);  
+}
+
+.quote-form__comment {
+    height: 202px; 
+    resize: none;
+}
+
+.quote-form__submit {
+  width: 100px;
+  background-color: #333850;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'LatoWebLight', sans-serif;
+  line-height: 38px;
+  letter-spacing: 0.2px;
+  margin-left: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+.quote-form__submit:hover {
+  cursor: pointer;
+  background-color: #000000;
+}
+
+.info {
+  width: 310px;
+}
+
+.info__title {
+  padding: 2px 0 10px;
+  font-size: 18px;
+  font-family: 'LatoWebBlack', sans-serif;
+  line-height: 18px;
+  white-space: nowrap;   /*скрытие переполнения строки*/
+  overflow: hidden; 
+}
+
+.info__description {
+  font-size: 12px;
+  font-family: 'LatoWeb', sans-serif;
+  line-height: 21.56px;
+  text-align: justify;
+  padding-right: 10px;
+  padding-bottom: 23px;
+}
+
+.info__contacts {
+  font-size: 12px;
+  font-family: 'LatoWeb', sans-serif;
+  line-height: 21.56px;
+  letter-spacing: -0.2px;
+}
+
+.contacts__map:before {
+  content: url(assets/icons/map.png);
+  padding: 0 14px 0 3px;
+}
+
+.info__contacts a{
+  text-decoration: none;
+}
+
+.contacts__tel {
+  color: #ffffff;  
+}
+
+.contacts__tel:before {
+  content: url(assets/icons/tel.png);
+  padding-right: 12px;
+}
+
+.contacts__mail {
+  color: #ffffff;  
+}
+
+.contacts__mail:before {
+  content: url(assets/icons/mail.png);
+  padding-right: 10px;
+}
+
+.footer {
+  background-color: #2d303a;
+}
+
+.footer-wrap {
+  display: flex; 
+  justify-content: space-between;
+  padding: 22px 0;
+  
+}
+.footer__copyright {
+  color: #666d89;
+  font-size: 12px;
+  font-family: 'LatoWeb', sans-serif;
+  line-height: 21px;
+  padding: 5px 0 0 12px;
+  letter-spacing: -0.2px;
+}
+
+.footer__social {
+  display: flex; 
+  margin-right: 10px;
+}
+
+.social__icon {
+  display: block;
+  position: relative; 
+  margin-left: 8px; 
+  width: 32px;
+  height: 32px; 
+  border-radius: 50%;
+  border: 1px solid #666d89;
+  box-sizing: border-box;  
+}
+
+.social__icon:hover {
+  border-color: #8e98c0;
+}
+
+.social__icon object {  
+  height: 15px; 
+  position: absolute; 
+  left: 50%; top: 50%; 
+  transform: translate(-50%,-50%);
+  line-height: 100%; 
+}
+
+.social-svg {
+  fill:#666d89;
+}
+
+.social-svg:hover {
+  cursor: pointer;
+  fill:#8e98c0;
+}
+
+.social__icon .google-ico {
+  height: 22px;
+}

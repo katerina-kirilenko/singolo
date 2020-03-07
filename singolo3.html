@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="singolo3.css">  
+  <title>Singolo</title>
+</head>
+<body>
+    <div class="wrapper">
+      <section class="quote">
+        <div class="container">
+          <div class="quote__header">
+            <h2 class="quote__title">Get a Quote</h2>
+            <p class="quote__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>            
+          </div>
+          <div class="quote__content">
+            <div class="form-wrap">
+              <form class="quote-form" action="/quote" method="POST">
+                <input class="quote-form__username" type="text" name="username" placeholder="Name (Required)" required>
+                <input class="quote-form__email" type="email" name="email" placeholder="Email (Required)" required>
+                <input class="quote-form__subject" type="text" name="subject" placeholder="Subject">
+                <textarea class="quote-form__comment" name="comment" placeholder="Describe your project in detail..."></textarea>
+                <button class="quote-form__submit" name="submit">Submit</button>
+              </form>
+            </div>
+            <div class="info">
+              <h4 class="info__title">Contact Information</h4>
+              <p class="info__description">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
+              <div class="info__contacts">
+                <p class="contacts__map">Elm St. 14/05 Lost City</p>
+                <a href="tel:03528 331 86 35"><p class="contacts__tel">03528 331 86 35</p></a>
+                <a href="mailto:info@singolo.com"><p class="contacts__mail">info@singolo.com</p>
+              </div></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="container footer-wrap">
+          <p class="footer__copyright">© Copyright 2013 by PSDchat.com</p>
+          <div class="footer__social">
+              <a class="social__icon" href="#">                
+                <object data="./assets/icons/facebook-f-brands.svg" type="image/svg+xml" id="facebook-ico"></object>      
+              </a>
+              <a class="social__icon" href="#">
+                <object data="./assets/icons/google-plus.svg" type="image/svg+xml" class="google-ico"></object>
+              </a>
+              <a class="social__icon" href="#">
+                <object data="./assets/icons/twitter-brands.svg" type="image/svg+xml" class="twitter-ico"></object>
+              </a>
+              <a class="social__icon" href="#">
+                <object data="./assets/icons/linkedin-in-brands.svg" type="image/svg+xml" class="linkedin-ico"></object>               
+              </a>
+            </div>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>
