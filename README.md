@@ -1,2 +1,2 @@
-# singolo
-Singolo. Part 2
+# Singolo
+[Singolo: final version](https://katerina-kirilenko.github.io/singolo/)
