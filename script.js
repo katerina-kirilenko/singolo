@@ -5,6 +5,9 @@ window.onload = function() {
   // Phone
   addPhoneClickHandler();
 
+  // Slider
+  addSliderClickHandler();
+
   // Tags
   addTagsClickHandler();
 
@@ -27,34 +30,97 @@ const addMenuClickHandler = () => {
 
 // Phone
 const addPhoneClickHandler = () => {
-  // let phoneV = document.querySelector(".phone-vertical");
-  // let phoneH = document.querySelector(".phone-horizontal");
-  // let displayV = phoneV.querySelector(".wrap-display");
-  // let displayH = phoneH.querySelector(".wrap-display");
+  let phoneV = document.querySelector(".phone-vertical");
+  let phoneH = document.querySelector(".phone-horizontal");
+  let displayV = phoneV.querySelector(".wrap-display");
+  let displayH = phoneH.querySelector(".wrap-display");
 
-  let phones = document.querySelector(".slider__content");
-  phones.addEventListener("click", event => {
-    phone = event.path[event.path.length - 9];
-    switched(phone);
-    console.log(phones.children);
-    console.log(event);
+  // let phones = document.querySelector(".slider__content");
+  // phones.addEventListener("click", event => {
+  //   phone = event.path[event.path.length - 10];
+  //   switched(phone);
+  //   console.log(phones.children);
+  //   console.log(event);
+  // });
+
+  // function switched(phone) {
+  //   let display = phone.querySelector(".wrap-display");
+  //   display.classList.toggle("display-off");
+
+  // let indicator = phone.querySelector(".indicator");
+  // indicator.classList.toggle("display-off");
+  // }
+  phoneV.addEventListener("click", event => {
+    displayV.classList.toggle("display-off");
   });
 
-  function switched(phone) {
-    let display = phone.querySelector(".wrap-display");
-    display.classList.toggle("display-off");
-
-    let indicator = phone.querySelector(".indicator");
-    indicator.classList.toggle("display-off");
-  }
-  // phoneV.addEventListener("click", event => {
-  //   displayV.classList.toggle("display-off");
-  // });
-
-  // phoneH.addEventListener("click", event => {
-  //   displayH.classList.toggle("display-off");
-  // });
+  phoneH.addEventListener("click", event => {
+    displayH.classList.toggle("display-off");
+  });
 };
+
+// Slider
+function addSliderClickHandler() {
+  let items = document.querySelectorAll(".slider__item");
+  let currentItem = 0;
+  let isEnabled = true;
+
+  function changeCurrentItem(n) {
+    currentItem = (n + items.length) % items.length;
+  }
+
+  function hideItem(direction) {
+    isEnabled = false;
+    items[currentItem].classList.add(direction);
+    items[currentItem].addEventListener("animationend", function() {
+      this.classList.remove("slide-active", direction);
+    });
+  }
+
+  function showItem(direction) {
+    items[currentItem].classList.add("slide-next", direction);
+    items[currentItem].addEventListener("animationend", function() {
+      this.classList.remove("slide-next", direction);
+      this.classList.add("slide-active");
+      isEnabled = true;
+    });
+  }
+
+  function nextItem(n) {
+    hideItem("to-left");
+    changeCurrentItem(n + 1);
+    showItem("from-right");
+  }
+
+  function previosItem(n) {
+    hideItem("to-right");
+    changeCurrentItem(n - 1);
+    showItem("from-left");
+  }
+
+
+  document.querySelector(".left-arrow").addEventListener("click", function() {
+    if (isEnabled) {
+      previosItem(currentItem);
+    }
+  });
+
+  document.querySelector(".right-arrow").addEventListener("click", function() {
+    if (isEnabled) {
+      nextItem(currentItem);
+    }
+  });
+
+  let slider = document.querySelector(".slider");
+  slider.addEventListener("click", e => {
+    if (
+      e.target.className == "right-arrow" ||
+      e.target.className == "left-arrow"
+    ) {
+      slider.classList.toggle("background-blue");
+    }
+  });
+}
 
 // Tags
 const addTagsClickHandler = () => {
@@ -124,9 +190,13 @@ const addGalleryImgClickHandler = () => {
 const addModalClickHandler = () => {
   const btnOpen = document.getElementById("btn");
   const btnClose = document.getElementById("close-btn");
+  const form = document.querySelector(".quote-form");
 
-  btnOpen.addEventListener("click", event => {    
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+  });
 
+  btnOpen.addEventListener("click", event => {
     const username = document.getElementById("username").value.toString();
     const email = document.getElementById("email").value.toString();
     const subject = document.getElementById("subject").value.toString();
@@ -134,9 +204,13 @@ const addModalClickHandler = () => {
 
     const sendStatus = document.getElementById("send-status");
     const messageTheme = document.getElementById("message-theme");
-    const messageText= document.getElementById("message-text");
+    const messageText = document.getElementById("message-text");
 
-    if (username === "" || email === "") {
+    if (
+      username === "" ||
+      email === "" ||
+      email !== email.match(/.+@.+/).input
+    ) {
       sendStatus.innerText =
         "Письмо не отправлено :( Пожалуйста, заполните ваше имя и email.";
     } else {
@@ -150,17 +224,43 @@ const addModalClickHandler = () => {
     }
 
     if (comment === "") {
-      messageText.innerText = 'Без описания';
+      messageText.innerText = "Без описания";
     } else {
       messageText.innerText = comment;
     }
 
     document.getElementById("modal-message").classList.remove("hidden");
-    event.preventDefault();
   });
 
   btnClose.addEventListener("click", () => {
     document.getElementById("modal-message").classList.add("hidden");
-    document.querySelector(".quote-form").reset();
   });
 };
+
+// Button to top
+(function() {
+  "use strict";
+
+  function trackScroll() {
+    var scrolled = window.pageYOffset;
+
+    if (scrolled > 300) {
+      goTopBtn.classList.add("back_to_top-show");
+    }
+    if (scrolled < 300) {
+      goTopBtn.classList.remove("back_to_top-show");
+    }
+  }
+
+  function backToTop() {
+    if (window.pageYOffset > 0) {
+      window.scrollBy(0, -30);
+      setTimeout(backToTop, 10);
+    }
+  }
+
+  var goTopBtn = document.querySelector(".back_to_top");
+
+  window.addEventListener("scroll", trackScroll);
+  goTopBtn.addEventListener("click", backToTop);
+})();
