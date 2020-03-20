@@ -14,7 +14,7 @@
         </h1>
         <nav class="header__navigation">
           <ul class="navigation" id="menu">
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#slider" class="active">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#about">About</a></li>
@@ -23,80 +23,79 @@
         </nav>
       </div>
     </header>
-    <div class="slider">
+    <section class="slider" id="slider">
       <div class="container">
         <div class="items-container">
+          <div class="slider__arrows left_arrow">
+            <img
+              src="./assets/icons/arrow-left.png"
+              alt="left arrow"
+              class="left-arrow"
+            />
+          </div>
           <div class="slider__item slide-active">
-            <div class="phone-vertical">
-              <div class="indicator"></div>
-              <div class="wrap-display">
+            <div class="phones-group">
+              <div class="phone-vertical">
+                <div class="indicator"></div>
+                <div class="wrap-display">
+                  <img
+                    src="./assets/img/phone-vertical-display.jpg"
+                    class="phone-vertical-display"
+                    alt="phone display"
+                  />
+                </div>
                 <img
-                  src="./assets/img/phone-vertical-display.jpg"
-                  class="phone-vertical-display"
-                  alt="phone display"
+                  src="./assets/img/phone.png"
+                  class="phone-body"
+                  alt="phone"
+                />
+                <img
+                  src="./assets/img/phone-shadow.png"
+                  class="phone-vertical-shadow"
+                  alt="phone shadow"
                 />
               </div>
-              <img
-                src="./assets/img/phone.png"
-                class="phone-body"
-                alt="phone"
-              />
-              <img
-                src="./assets/img/phone-shadow.png"
-                class="phone-vertical-shadow"
-                alt="phone shadow"
-              />
-            </div>
-            <div class="phone-horizontal">
-              <div class="indicator"></div>
-              <div class="wrap-display">
+              <div class="phone-horizontal">
+                <div class="indicator"></div>
+                <div class="wrap-display">
+                  <img
+                    src="./assets/img/phone-horizontal-display.jpg"
+                    class="phone-horizontal-display"
+                    alt="phone display"
+                  />
+                </div>
                 <img
-                  src="./assets/img/phone-horizontal-display.jpg"
-                  class="phone-horizontal-display"
-                  alt="phone display"
+                  src="./assets/img/phone.png"
+                  class="phone-body"
+                  alt="phone"
+                />
+                <img
+                  src="./assets/img/phone-shadow.png"
+                  class="phone-horizontal-shadow"
+                  alt="phone shadow"
                 />
               </div>
-              <img
-                src="./assets/img/phone.png"
-                class="phone-body"
-                alt="phone"
-              />
-              <img
-                src="./assets/img/phone-shadow.png"
-                class="phone-horizontal-shadow"
-                alt="phone shadow"
-              />
             </div>
           </div>
           <div class="slider__item">
-            <div class="slide-2">
-              <img
-                src="./assets/img/slide-2.png"
-                class="phone-slide-2"
-                alt="phone"
-              />
-            </div>
+            <img
+              src="./assets/img/slide-2.png"
+              class="phone-slide-2"
+              alt="phone"
+            />
+          </div>
+          <div class="slider__arrows right_arrow">
+            <img
+              src="./assets/icons/arrow-right.png"
+              alt="right arrow"
+              class="right-arrow"
+            />
           </div>
         </div>
-        <div class="slider__arrows left_arrow">
-          <img
-            src="./assets/icons/arrow-left.png"
-            alt="left arrow"
-            class="left-arrow"
-          />
-        </div>
-        <div class="slider__arrows right_arrow">
-          <img
-            src="./assets/icons/arrow-right.png"
-            alt="right arrow"
-            class="right-arrow"
-          />
-        </div>
       </div>
-    </div>
-    <section class="services">
+    </section>
+    <section class="services" id="services">
       <div class="container">
-        <a class="anchor" id="services"></a>
         <h2 class="services__title">Our Services</h2>
         <p class="services__description">
           Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum.
@@ -200,9 +199,8 @@
         </div>
       </div>
     </section>
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
       <div class="container">
-        <a class="anchor" id="portfolio"></a>
         <div class="portfolio__header">
           <h2 class="portfolio__title">Portfolio</h2>
           <p class="portfolio__description">
@@ -304,9 +302,8 @@
         </div>
       </div>
     </section>
-    <section class="about-us">
+    <section class="about-us" id="about">
       <div class="container">
-        <a class="anchor" id="about"></a>
         <div class="about-us__header">
           <h2 class="about-us__title">About Us</h2>
           <p class="about-us__description">
@@ -443,9 +440,8 @@
         </div>
       </div>
     </section>
-    <section class="quote">
+    <section class="quote" id="quote">
       <div class="container">
-        <a class="anchor" id="quote"></a>
         <div class="quote__header">
           <h2 class="quote__title">Get a Quote</h2>
           <p class="quote__description">
@@ -548,18 +544,15 @@
         </div>
       </div>
     </footer>
-    <!-- Modal -->
     <div id="modal-message" class="overlay hidden">
       <div id="message">
         <p id="send-status"></p>
-        <div>Тема: <span id="message-theme"></span></div>
-        <div>Описание: <span id="message-text"></span></div>
+        <div id="message-theme"></div>
+        <div id="message-text"></div>
         <button id="close-btn">OK</button>
       </div>
     </div>
-
-    <a class="back_to_top" title="Наверх">↑</a>
-
+    <a class="back_to_top" id="btnTop" title="Наверх">↑</a>
     <script src="script.js"></script>
   </body>
 </html>

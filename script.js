@@ -1,7 +1,4 @@
 window.onload = function() {
-  // Menu
-  addMenuClickHandler();
-
   // Phone
   addPhoneClickHandler();
 
@@ -16,16 +13,12 @@ window.onload = function() {
 
   // Modal
   addModalClickHandler();
-};
 
-// Menu
-const addMenuClickHandler = () => {
-  let menu = document.getElementById("menu");
+  // Button to top
+  clickButtonTop();
 
-  menu.addEventListener("click", event => {
-    menu.querySelectorAll("a").forEach(el => el.classList.remove("active"));
-    event.target.classList.add("active");
-  });
+  // Scroll
+  scrollPage();
 };
 
 // Phone
@@ -34,28 +27,18 @@ const addPhoneClickHandler = () => {
   let phoneH = document.querySelector(".phone-horizontal");
   let displayV = phoneV.querySelector(".wrap-display");
   let displayH = phoneH.querySelector(".wrap-display");
+  let indicatorV = document.querySelector(".phone-vertical .indicator");
+  let indicatorH = document.querySelector(".phone-horizontal .indicator");
 
-  // let phones = document.querySelector(".slider__content");
-  // phones.addEventListener("click", event => {
-  //   phone = event.path[event.path.length - 10];
-  //   switched(phone);
-  //   console.log(phones.children);
-  //   console.log(event);
-  // });
 
-  // function switched(phone) {
-  //   let display = phone.querySelector(".wrap-display");
-  //   display.classList.toggle("display-off");
-
-  // let indicator = phone.querySelector(".indicator");
-  // indicator.classList.toggle("display-off");
-  // }
-  phoneV.addEventListener("click", event => {
+  phoneV.addEventListener("click", () => {
     displayV.classList.toggle("display-off");
+    indicatorV.classList.toggle("display-off");
   });
 
-  phoneH.addEventListener("click", event => {
+  phoneH.addEventListener("click", () => {
     displayH.classList.toggle("display-off");
+    indicatorH.classList.toggle("display-off");
   });
 };
 
@@ -97,7 +80,6 @@ function addSliderClickHandler() {
     changeCurrentItem(n - 1);
     showItem("from-left");
   }
-
 
   document.querySelector(".left-arrow").addEventListener("click", function() {
     if (isEnabled) {
@@ -181,8 +163,6 @@ const addGalleryImgClickHandler = () => {
       .querySelectorAll(".gallery__img")
       .forEach(el => el.classList.remove("img_bordered"));
     e.target.parentElement.classList.add("img_bordered");
-
-    console.log(e);
   });
 };
 
@@ -207,60 +187,83 @@ const addModalClickHandler = () => {
     const messageText = document.getElementById("message-text");
 
     if (
-      username === "" ||
-      email === "" ||
-      email !== email.match(/.+@.+/).input
+      username !== "" &&
+      email !== "" &&
+      email === email.match(/.+@.+/).input
     ) {
-      sendStatus.innerText =
-        "Письмо не отправлено :( Пожалуйста, заполните ваше имя и email.";
-    } else {
       sendStatus.innerText = "Письмо отправлено! :)";
-    }
+      if (subject === "") {
+        messageTheme.innerText = "Тема: без темы";
+      } else {
+        messageTheme.innerText = "Тема: " + subject;
+      }
+      if (comment === "") {
+        messageText.innerText = "Описание: без описания";
+      } else {
+        messageText.innerText = "Описание: " + comment;
+      }
 
-    if (subject === "") {
-      messageTheme.innerText = "Без темы";
-    } else {
-      messageTheme.innerText = subject;
+      document.getElementById("modal-message").classList.remove("hidden");
+      document.body.classList.add("no-scroll");
     }
-
-    if (comment === "") {
-      messageText.innerText = "Без описания";
-    } else {
-      messageText.innerText = comment;
-    }
-
-    document.getElementById("modal-message").classList.remove("hidden");
   });
+
+console.log(document.body.classList);
 
   btnClose.addEventListener("click", () => {
     document.getElementById("modal-message").classList.add("hidden");
+    document.body.classList.remove("no-scroll");       
+    form.reset();
   });
 };
 
 // Button to top
-(function() {
-  "use strict";
+function clickButtonTop() {
+  btnTop = document.getElementById("btnTop");
 
-  function trackScroll() {
-    var scrolled = window.pageYOffset;
+  window.onscroll = function() {
+    scrollFunction();
+  };
 
-    if (scrolled > 300) {
-      goTopBtn.classList.add("back_to_top-show");
-    }
-    if (scrolled < 300) {
-      goTopBtn.classList.remove("back_to_top-show");
-    }
-  }
-
-  function backToTop() {
-    if (window.pageYOffset > 0) {
-      window.scrollBy(0, -30);
-      setTimeout(backToTop, 10);
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 200 ||
+      document.documentElement.scrollTop > 200
+    ) {
+      btnTop.style.display = "block";
+    } else {
+      btnTop.style.display = "none";
     }
   }
 
-  var goTopBtn = document.querySelector(".back_to_top");
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
-  window.addEventListener("scroll", trackScroll);
-  goTopBtn.addEventListener("click", backToTop);
-})();
+  btnTop.addEventListener("click", topFunction);
+}
+
+// Scroll
+function scrollPage() {
+  document.addEventListener("scroll", onScroll);
+
+  function onScroll(e) {
+    let sections = document.querySelectorAll("section");
+    let links = document.querySelectorAll("#menu a");
+
+    sections.forEach(el => {
+      if (
+        el.getBoundingClientRect().top <=
+        document.documentElement.clientWidth / 3
+      ) {
+        links.forEach(a => {
+          a.classList.remove("active");
+          if (el.getAttribute("id") === a.getAttribute("href").substring(1)) {
+            a.classList.add("active");
+          }
+        });
+      }
+    });
+  }
+}

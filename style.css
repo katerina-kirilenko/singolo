@@ -19,6 +19,7 @@ button {
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -45,7 +46,6 @@ h4 {
   width: 960px;
   margin: 0 auto;
   padding: 0 10px;
-  position: relative;
 }
 
 .layout-3-column {
@@ -64,8 +64,8 @@ h4 {
 .header {
   background-color: #2d303a;
   border-bottom: 6px solid #323746;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 100%;
   z-index: 999;
 }
 
@@ -127,51 +127,52 @@ h4 {
 /* slider */
 
 .slider {
-  position: relative;
+  padding-top: 95px;
   background-color: #f06c64;
   border-bottom: 6px solid #ea676b;
-  height: 595px;
   transition: all 0.3s ease-out;
 }
 
 .slider.background-blue {
-  background-color: #648BF0;
-  border-color: rgb(86, 120, 206);
-}
-
-.slider .container {  
-  
+  background-color: #648bf0;
+  border-color: rgb(97, 135, 231);
 }
 
 .items-container {
-  position: absolute; 
   width: 100%;
-  /* overflow: hidden; */
+  height: 595px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slider__item {  
-  display: none;  
-  position: relative; 
+.slider__item {
+  width: 800px;
+  display: none;
+  position: relative;
+  justify-content: center;
+  align-items: center;
   animation: 0.5s ease-in-out;
-  
 }
 
-.slider__item.slide-active,
-.slider__item.slide-next {
-  display: block;
+.slide-active,
+.slide-next {
+  display: flex;
+  width: 800px;
 }
 
 .slide-next {
   position: absolute;
-  top: 0;
   width: 100%;
 }
 
 .slider__arrows {
   z-index: 998;
   position: absolute;
-  top: calc((589px - 27px)/2);
-  padding: 0 20px;
+  top: calc((589px - 27px) / 2);
+  padding: 0 10px;
   cursor: pointer;
 }
 
@@ -230,33 +231,44 @@ h4 {
 }
 
 /* phones */
+.phones-group {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.phone-vertical,
+.phone-horizontal {
+  height: 483px;
+  width: 240px;
+  position: relative;
+}
 
 .phone-vertical {
-  position: absolute;
-  top: 53px;
-  left: 82px;  
+  margin-top: -3px;
+  margin-left: 2px;
 }
 
 .indicator {
-  display: block;  
+  display: block;
   position: absolute;
   top: 19px;
-  left: 106px; 
+  left: 106px;
   z-index: 105;
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #EB5055;
+  background: #eb5055;
 }
 
 .wrap-display {
-  display: block;  
+  display: block;
   width: 188px;
   height: 333px;
   overflow: hidden;
   position: absolute;
   top: 65px;
-  left: 14px; 
+  left: 14px;
   z-index: 104;
   transition: all 0.3s ease-in-out;
 }
@@ -279,9 +291,8 @@ h4 {
 }
 
 .phone-horizontal {
-  position: absolute;
-  top: 174px;
-  right: 107px;
+  top: -4px;
+  left: -148px;
   transform: rotate(90deg);
 }
 
@@ -304,15 +315,16 @@ h4 {
   opacity: 0;
 }
 
-.slide-2 {
-  position: absolute;
-  top: 50px;
-  left: 23%;
+.wrap-display:hover,
+.phone-body:hover,
+.phone-wrap:hover {
+  cursor: pointer;
 }
 
 /* Section Our Services */
 
 .services {
+  scroll-margin-top: 95px;
   background-color: #f2f2f2;
   padding-top: 50px;
   border-bottom: 6px solid #ffffff;
@@ -377,6 +389,7 @@ h4 {
 /* Section Portfolio */
 
 .portfolio {
+  scroll-margin-top: 95px;
   background-color: #2d303a;
   padding: 51px 0 56px;
   border-bottom: 6px solid #323746;
@@ -447,7 +460,7 @@ h4 {
 }
 
 .gallery__img.img_bordered {
-  border-color: #F06C64;
+  border-color: #f06c64;
 }
 
 .gallery__img.img_hidden {
@@ -462,7 +475,7 @@ h4 {
 
 .gallery__img:hover {
   cursor: pointer;
-  border: 5px solid #F06C64;
+  border: 5px solid #f06c64;
 }
 
 .gallery__img:hover img {
@@ -472,6 +485,7 @@ h4 {
 /* Section About Us */
 
 .about-us {
+  scroll-margin-top: 95px;
   background-color: #f2f2f2;
   padding: 51px 0 39px;
   border-bottom: 6px solid #ffffff;
@@ -533,7 +547,7 @@ h4 {
 }
 
 .worker__social .social__icon {
-  margin: 0 8px 0 0;  
+  margin: 0 8px 0 0;
 }
 
 /* Section Get a Quote */
@@ -614,7 +628,7 @@ h4 {
 
 .quote-form__submit {
   width: 100px;
-  background-color: #FBC65F;
+  background-color: #fbc65f;
   border-radius: 4px;
   color: #2d303a;
   text-transform: uppercase;
@@ -639,37 +653,60 @@ h4 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;   
-  background-color: #0008; 
+  height: 100%;
+  background-color: #0008;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  z-index: 10001;
 }
 
 .overlay.hidden {
   display: none;
 }
 
+.no-scroll {
+   height: 100%;
+   overflow: hidden;
+}
+
 #message {
   color: black;
-  padding: 10px; 
+  padding: 20px;
   position: relative;
   border-radius: 10px;
   background-color: #fff;
-  box-shadow: 0 0 10px 10px rgba(0,0,0,0.2);
-  width: 400px; 
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
   min-height: 200px;
-  max-height: 76%;
+  max-height: 72%;
   overflow: auto;
+  overflow-wrap: break-word;
+}
+
+#message > * {
+  padding-bottom: 15px;
+}
+
+#send-status {
+  padding-top: 10px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+#message-text {
+  text-align: justify;
+  line-height: 1.5;
 }
 
 #close-btn {
-  position: absolute; 
-  bottom: 20px;
+  position: relative;
+  bottom: 10px;
   left: calc(50% - 30px);
   padding: 5px 20px;
-  margin: 0 auto;
-  background-color: #FBC65F;
+  margin-top: 20px;
+  background-color: #fbc65f;
   border-radius: 15px;
   text-align: center;
   cursor: pointer;
@@ -781,6 +818,8 @@ h4 {
   -webkit-filter: hue-rotate(100deg);
 }
 
+/* Кнопка вверх */
+
 .back_to_top {
   position: fixed;
   bottom: 40px;
@@ -790,19 +829,15 @@ h4 {
   height: 45px;
   text-align: center;
   line-height: 45px;
-  background: #FBC65F;
+  background: #fbc65f;
   color: #2d303a;
   cursor: pointer;
   border-radius: 50%;
   display: none;
-  transition: background 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .back_to_top:hover {
   background: #666d89;
   color: #fff;
-}
-
-.back_to_top-show {
-  display: block;
 }
