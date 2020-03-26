@@ -208,8 +208,6 @@ const addModalClickHandler = () => {
     }
   });
 
-console.log(document.body.classList);
-
   btnClose.addEventListener("click", () => {
     document.getElementById("modal-message").classList.add("hidden");
     document.body.classList.remove("no-scroll");       
