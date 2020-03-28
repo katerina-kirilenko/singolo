@@ -18,11 +18,11 @@
         </h1>
         <nav class="header__navigation">
           <ul class="navigation" id="menu">
-            <li><a href="#slider" class="active">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#quote">Contact</a></li>
+            <li><a href="#slider" class="active menu-link">Home</a></li>
+            <li><a href="#services" class="menu-link">Services</a></li>
+            <li><a href="#portfolio" class="menu-link">Portfolio</a></li>
+            <li><a href="#about" class="menu-link">About</a></li>
+            <li><a href="#quote" class="menu-link">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -496,25 +496,26 @@
                 Send
               </button>
             </form>
-          </div>
-          <div class="info">
-            <h4 class="info__title">Contact Information</h4>
-            <p class="info__description">
-              Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh.
-              Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla
-              sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et
-              consequat felis.
-            </p>
-            <div class="info__contacts">
-              <p class="contacts__map">Elm St. 14/05 Lost City</p>
-              <p class="contacts__tel">
-                <a href="tel:035283318635">03528 331 86 35</a>
+            <div class="info">
+              <h4 class="info__title">Contact Information</h4>
+              <p class="info__description">
+                Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh.
+                Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla
+                sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et
+                consequat felis.
               </p>
-              <p class="contacts__mail">
-                <a href="mailto:info@singolo.com">info@singolo.com</a>
-              </p>
-            </div>
+              <div class="info__contacts">
+                <p class="contacts__map">Elm St. 14/05 Lost City</p>
+                <p class="contacts__tel">
+                  <a href="tel:035283318635">03528 331 86 35</a>
+                </p>
+                <p class="contacts__mail">
+                  <a href="mailto:info@singolo.com">info@singolo.com</a>
+                </p>
+              </div>
+            </div>            
           </div>
+
         </div>
       </div>
     </section>
@@ -554,7 +555,9 @@
         </div>
       </div>
     </footer>
-    <!-- Modal -->
+    <!-- Hamburger menu overlay -->
+    <div id="hamburger-menu-overlay"></div>
+    <!-- Modal message -->
     <div id="modal-message" class="overlay hidden">
       <div id="message">
         <p id="send-status"></p>

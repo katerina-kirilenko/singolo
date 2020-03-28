@@ -19,6 +19,9 @@ window.onload = function() {
 
   // Scroll
   scrollPage();
+
+  // Hamburger menu
+  addHamburgerClickHandler();
 };
 
 // Phone
@@ -29,7 +32,6 @@ const addPhoneClickHandler = () => {
   let displayH = phoneH.querySelector(".wrap-display");
   let indicatorV = document.querySelector(".phone-vertical .indicator");
   let indicatorH = document.querySelector(".phone-horizontal .indicator");
-
 
   phoneV.addEventListener("click", () => {
     displayV.classList.toggle("display-off");
@@ -135,20 +137,24 @@ const selectClickedTag = clickedTag => {
   clickedTag.classList.remove("tag_bordered");
 };
 
+let galleryDiv = document.getElementById("portfolio-gallery");
+let collection = [...galleryDiv.children];
+
 const showAllImages = () => {
-  let images = document.querySelectorAll(".portfolio__gallery .gallery__img");
-  images.forEach(image => {
-    image.classList.remove("img_hidden");
+  galleryDiv.innerHTML = "";
+
+  collection.forEach(item => {
+    galleryDiv.append(item);
   });
 };
 
 const filterImagesBySelectedTag = selectedTag => {
-  let images = document.querySelectorAll(".portfolio__gallery .gallery__img");
-  images.forEach(image => {
-    image.classList.add("img_hidden");
+  galleryDiv.innerHTML = "";
+
+  collection.forEach(image => {
     image.querySelectorAll("img").forEach(category => {
       if (category.dataset.category === selectedTag) {
-        image.classList.remove("img_hidden");
+        galleryDiv.append(image);
       }
     });
   });
@@ -210,7 +216,7 @@ const addModalClickHandler = () => {
 
   btnClose.addEventListener("click", () => {
     document.getElementById("modal-message").classList.add("hidden");
-    document.body.classList.remove("no-scroll");       
+    document.body.classList.remove("no-scroll");
     form.reset();
   });
 };
@@ -265,3 +271,24 @@ function scrollPage() {
     });
   }
 }
+
+// Hamburger menu
+const addHamburgerClickHandler = () => {
+  document.addEventListener("click", e => {
+    let val = [...e.target.classList];
+
+    if (
+      val == "hamburger" ||
+      val == "hamburger__line" ||
+      val == "overlay" ||
+      val == "menu-link"
+    ) {
+      document
+        .querySelector(".header__navigation")
+        .classList.toggle("hamburger__menu_open");
+      document
+        .getElementById("hamburger-menu-overlay")
+        .classList.toggle("overlay");
+    }
+  });
+};
