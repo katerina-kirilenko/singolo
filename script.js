@@ -255,11 +255,11 @@ function scrollPage() {
   function onScroll(e) {
     let sections = document.querySelectorAll('section');
     let links = document.querySelectorAll('#menu a');
-
+    
     sections.forEach(el => {
       if (
         el.getBoundingClientRect().top <=
-        document.documentElement.clientWidth / 3
+        document.documentElement.clientWidth / 4
       ) {
         links.forEach(a => {
           a.classList.remove('active');
@@ -284,7 +284,7 @@ const addHamburgerClickHandler = () => {
         item == 'hamburger' ||
         item == 'hamburger__line' ||
         item == 'overlay' ||
-        item == 'menu-link'
+        (item == 'menu-link' && menu.classList.contains('hamburger__menu_open'))
       ) {
         menu.classList.toggle('hamburger__menu_open');
 
