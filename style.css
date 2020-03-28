@@ -137,10 +137,6 @@ h4 {
   color: #f06c64;
 }
 
-.navigation li a:not(.active):hover {
-  color: #f06c64;
-}
-
 .hamburger {
   display: none;
   position: relative;
@@ -309,11 +305,6 @@ h4 {
   transition: all 0.3s ease-in-out;
 }
 
-.slider__arrows img:hover {
-  cursor: pointer;
-  opacity: 0.4;
-}
-
 .to-left {
   animation-name: left;
 }
@@ -440,12 +431,6 @@ h4 {
 
 .display-off {
   opacity: 0;
-}
-
-.wrap-display:hover,
-.phone-body:hover,
-.phone-wrap:hover {
-  cursor: pointer;
 }
 
 @media screen and (max-width: 1019px) {
@@ -715,12 +700,6 @@ h4 {
   border-radius: 5px;
 }
 
-.tag:hover {
-  color: #ffffff;
-  border-color: #ffffff;
-  cursor: pointer;
-}
-
 .tag_selected {
   color: #ffffff;
   border-color: #ffffff;
@@ -744,12 +723,6 @@ h4 {
 }
 
 .gallery__img.img_bordered {
-  outline: 5px solid #f06c64;
-  outline-offset: -5px;
-}
-
-.gallery__img:hover {
-  cursor: pointer;
   outline: 5px solid #f06c64;
   outline-offset: -5px;
 }
@@ -1072,12 +1045,6 @@ h4 {
   transition: background 0.3s ease-in-out;
 }
 
-.quote-form__submit:hover {
-  cursor: pointer;
-  background-color: #2d303a;
-  color: #f0d8d9;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -1340,20 +1307,6 @@ h4 {
   line-height: 100%;
 }
 
-.social__icon:hover {
-  filter: hue-rotate(100deg);
-  -webkit-filter: hue-rotate(100deg);
-}
-
-@media screen and (max-width: 1020px) {
-}
-
-@media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 375px) {
-}
-
 /* Кнопка вверх */
 
 .back_to_top {
@@ -1373,7 +1326,40 @@ h4 {
   transition: all 0.3s ease-in-out;
 }
 
-.back_to_top:hover {
-  background: #666d89;
-  color: #fff;
+@media screen and (min-width: 960px) {
+  .navigation li a:not(.active):hover {
+    color: #f06c64;
+  }
+  .slider__arrows img:hover {
+    cursor: pointer;
+    opacity: 0.4;
+  }
+  .wrap-display:hover,
+  .phone-body:hover,
+  .phone-wrap:hover {
+    cursor: pointer;
+  }
+  .tag:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    cursor: pointer;
+  }
+  .gallery__img:hover {
+    cursor: pointer;
+    outline: 5px solid #f06c64;
+    outline-offset: -5px;
+  }
+  .quote-form__submit:hover {
+    cursor: pointer;
+    background-color: #2d303a;
+    color: #f0d8d9;
+  }
+  .social__icon:hover {
+    filter: hue-rotate(100deg);
+    -webkit-filter: hue-rotate(100deg);
+  }
+  .back_to_top:hover {
+    background: #666d89;
+    color: #fff;
+  }
 }
