@@ -276,19 +276,32 @@ function scrollPage() {
 const addHamburgerClickHandler = () => {
   document.addEventListener("click", e => {
     let val = [...e.target.classList];
+    let menu = document.querySelector(".header__navigation");
+    let logo = document.querySelector(".logo");
 
-    if (
-      val == "hamburger" ||
-      val == "hamburger__line" ||
-      val == "overlay" ||
-      val == "menu-link"
-    ) {
-      document
-        .querySelector(".header__navigation")
-        .classList.toggle("hamburger__menu_open");
-      document
-        .getElementById("hamburger-menu-overlay")
-        .classList.toggle("overlay");
-    }
+    val.forEach(item => {
+      if (
+        item == "hamburger" ||
+        item == "hamburger__line" ||
+        item == "overlay" ||
+        item == "menu-link"
+      ) {
+        menu.classList.toggle("hamburger__menu_open");
+
+        document
+          .getElementById("hamburger-menu-overlay")
+          .classList.toggle("overlay");
+
+        document
+          .querySelector(".hamburger")
+          .classList.toggle("hamburger__rotate");
+
+        if (menu.classList.contains("hamburger__menu_open")) {
+          logo.style.marginLeft = "35px";
+        } else {
+          logo.style.marginLeft = "";
+        }
+      }
+    });
   });
 };
