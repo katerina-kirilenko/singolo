@@ -7,22 +7,27 @@
     <title>Singolo</title>
   </head>
   <body>
+    <!-- Header -->
     <header class="header">
       <div class="container header-wrap">
-        <h1>
+        <span class="hamburger">
+          <span class="hamburger__line"></span>
+        </span>
+        <h1 class="logo">
           <a href="#" class="header__logo">Singolo<span>*</span></a>
         </h1>
         <nav class="header__navigation">
           <ul class="navigation" id="menu">
-            <li><a href="#slider" class="active">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#quote">Contact</a></li>
+            <li><a href="#slider" class="active menu-link">Home</a></li>
+            <li><a href="#services" class="menu-link">Services</a></li>
+            <li><a href="#portfolio" class="menu-link">Portfolio</a></li>
+            <li><a href="#about" class="menu-link">About</a></li>
+            <li><a href="#quote" class="menu-link">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
+    <!-- Slider -->
     <section class="slider" id="slider">
       <div class="container">
         <div class="items-container">
@@ -94,6 +99,7 @@
         </div>
       </div>
     </section>
+    <!-- Our services -->
     <section class="services" id="services">
       <div class="container">
         <h2 class="services__title">Our Services</h2>
@@ -199,6 +205,7 @@
         </div>
       </div>
     </section>
+    <!-- Portfolio -->
     <section class="portfolio" id="portfolio">
       <div class="container">
         <div class="portfolio__header">
@@ -302,6 +309,7 @@
         </div>
       </div>
     </section>
+    <!-- About us -->
     <section class="about-us" id="about">
       <div class="container">
         <div class="about-us__header">
@@ -440,6 +448,7 @@
         </div>
       </div>
     </section>
+    <!-- Quote -->
     <section class="quote" id="quote">
       <div class="container">
         <div class="quote__header">
@@ -487,28 +496,29 @@
                 Send
               </button>
             </form>
-          </div>
-          <div class="info">
-            <h4 class="info__title">Contact Information</h4>
-            <p class="info__description">
-              Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh.
-              Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla
-              sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et
-              consequat felis.
-            </p>
-            <div class="info__contacts">
-              <p class="contacts__map">Elm St. 14/05 Lost City</p>
-              <p class="contacts__tel">
-                <a href="tel:035283318635">03528 331 86 35</a>
+            <div class="info">
+              <h4 class="info__title">Contact Information</h4>
+              <p class="info__description">
+                Quisque hendrerit purus dapibus, ornare nibh vitae, viverra
+                nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat
+                libero. Nulla sed nunc et tortor luctus faucibus. Morbi at
+                aliquet turpis, et consequat felis.
               </p>
-              <p class="contacts__mail">
-                <a href="mailto:info@singolo.com">info@singolo.com</a>
-              </p>
+              <div class="info__contacts">
+                <p class="contacts__map">Elm St. 14/05 Lost City</p>
+                <p class="contacts__tel">
+                  <a href="tel:035283318635">03528 331 86 35</a>
+                </p>
+                <p class="contacts__mail">
+                  <a href="mailto:info@singolo.com">info@singolo.com</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- Footer -->
     <footer class="footer">
       <div class="container footer-wrap">
         <p class="footer__copyright">© Copyright 2013</p>
@@ -544,6 +554,9 @@
         </div>
       </div>
     </footer>
+    <!-- Hamburger menu overlay -->
+    <div id="hamburger-menu-overlay"></div>
+    <!-- Modal message -->
     <div id="modal-message" class="overlay hidden">
       <div id="message">
         <p id="send-status"></p>
@@ -552,7 +565,9 @@
         <button id="close-btn">OK</button>
       </div>
     </div>
+    <!-- Button to top -->
     <a class="back_to_top" id="btnTop" title="Наверх">↑</a>
+    <!-- Script -->
     <script src="script.js"></script>
   </body>
 </html>
